@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- <title>Custom Mapbox Style</title> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic291cmFiaDIwNDc2IiwiYSI6ImNsaGo3eWU2eTBmNm4zdG9lcjE5NTYzbXEifQ.ik3kXE1t-cNQOsBgNKZ1Qw'; // Replace with your Mapbox access token
+
+    // Create a new map instance
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/sourabh20476/clhjd1mlo01jv01pgh9zld3gl', // Replace with your Mapbox username and style ID
+      center: [91.2,22.7], // Replace with the desired center coordinates
+      zoom: 8.33 // Replace with the desired zoom level
+    });
+
+    var marker = new mapboxgl.Marker({color:'red'})
+    .setLngLat([91.2,22.7])
+    .addTo(map);
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+
+    var coordinates1 = [[91.20401378087328, 22.73234516185336], [91.13053654706547, 22.740596930760866], [91.11581393564865, 22.7308414226447], [91.13042915191676, 22.698821175870357], [91.08485886337125, 22.666114848082064], [91.09937616053318, 22.638229884131526], [91.12139848338195, 22.630072098924558], [91.14514860465273, 22.60914192881406], [91.1732577054891, 22.54843785663458], [91.2053309507855, 22.617497079792162], [91.28196054807624, 22.638135900430985], [91.31809585693883, 22.62624696231254], [91.47033163892668, 22.747044212617986], [91.42496982331693, 22.771085243216394], [91.28673331483249, 22.727204253433765], [91.20401378087328, 22.73234516185336]];
+
+    var coordinates2 = [
+      [67.2612676117711, 27.535643885803464],
+      [68.2712676117711, 29.545643885803464],
+      [79.2712676117711, 25.545643885803464],
+
+      [67.26183935525673, 27.53368556680578],
+      // ... rest of your coordinates
+    ];
+
+    map.on('load', function() {
+      map.addSource('polygon1', {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': [coordinates1]
+          }
+        }
+      });
+
+      map.addLayer({
+        'id': 'polygon1',
+        'type': 'fill',
+        'source': 'polygon1',
+        'paint': {
+          'fill-color': 'blue',
+          'fill-opacity': 0.6
+        }
+      });
+
+      // map.addSource('polygon2', {
+      //   'type': 'geojson',
+      //   'data': {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Polygon',
+      //       'coordinates': [coordinates2]
+      //     }
+      //   }
+      // });
+      //
+      // map.addLayer({
+      //   'id': 'polygon2',
+      //   'type': 'fill',
+      //   'source': 'polygon2',
+      //   'paint': {
+      //     'fill-color': 'red',
+      //     'fill-opacity': 0.9
+      //   }
+      // });
+    });
+
+
+  </script>
+</body>
+</html>
