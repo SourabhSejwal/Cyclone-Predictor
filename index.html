@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cyclone Predictor</title>
+  <link rel="icon" type="image/x-icon" href="fav.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="cyclone_style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link href="css-circular-prog-bar.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/mk_charts.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  <!--GOOGLE FONTS-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+
+  <!-- <script src="https://kit.fontawesome.com/068d45f74a.js" crossorigin="anonymous"></script> -->
+  <script src="https://kit.fontawesome.com/e7cb8045ab.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/6.0.0-rc/css/ionicons.min.css">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <!-- <script src="https://kit.fontawesome.com/e7cb8045ab.js" crossorigin="anonymous"></script> -->
+  <!-- bootstrap script -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <!-- <div class="main_screen"> -->
+  <div class="main_div">
+    <img class="main_img" src="frame3.png" />
+
+    <div class="row row3">
+
+      <div class="col-lg-6 intro-div">
+        <h1 class="big-heading">Cyclone Predictor</h1>
+        <!-- <h2 class="best_model_text">Best prediction in the world about cyclones. Best rated cyclone predictor model!</h2> -->
+        <h2 class="best_model_text">
+          Discover the power of our advanced cyclone prediction model,
+          accurate forecasts for tropical cyclones
+        </h2>
+
+        <!-- <div class="best_model_div">
+        </div> -->
+        <!-- SEE MORE BUTTON -->
+        <button id="result-btn" class="my-btn">
+          <p class="my-btn-text">See Results</p>
+        </button>
+      </div>
+
+      <div class="col-lg-6 nav-button-div navbar-expand-lg">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#new_navbar" aria-controls="new_navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="fa-solid fa-bars navbar-toggler-icon"></span>
+          <!-- <i class="fa-solid fa-bars"></i> -->
+        </button>
+        <div class="navbar-buttons collapse navbar-collapse" id="new_navbar">
+          <!-- NAVBAR BUTTONS -->
+          <div id="model-btn" class="model-button-div">
+            <button class="model-button">Model</button>
+          </div>
+          <div id="publish-btn" class="publish-button-div">
+            <button class="publish-button">Publications</button>
+          </div>
+          <div id="contact-btn" class="contact-button-div">
+            <button class="contact-button">Contact</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- MODEL START -->
+
+  <div id="model-id" class="mainParent">
+    <div class="row mainBox">
+      <div class="col-lg-8 graphCol">
+        <div class="headRow">
+          <!-- <H1 id="title"> Bulbul Cyclone</H1> -->
+          <select class="selCyclone">
+            <option value="bulbul">Bulbul</option>
+            <option value="fani">Fani</option>
+            <option value="gaja">Gaja</option>
+          </select>
+
+          <!-- <i class="fa-duotone fa-chart-simple"></i> -->
+          <!-- <i class="fa-light fa-map-location"></i> -->
+          <!-- <i class="fa-solid fa-chart-line"></i> -->
+          <!-- <i class="fa-regular fa-map-location-dot fa-sm"></i> -->
+
+          <div class="btnRow">
+            <button id="btn1Round">
+              <!-- <img class="icon-img" src="map.png" alt="" height="20vh"> -->
+              <span class="button-icon" style="/*color:#000000;"><i class="fa-solid fa-map fa-xl"></i></span>
+            </button>
+            <button id="btn2Round" style="border: None;border-radius: 0% 20% 20% 0%;">
+              <span style="color:#000000;"><i class="fa-solid fa-chart-simple fa-xl"></i></span> </button>
+
+          </div>
+        </div>
+        <div class="graph-div">
+
+          <img src="bulbul-img.PNG" class="graph-chart graph-img" style="display:none;"></img>
+          <div class="mapbox-container cont1" style="display:none;">
+            <div class="legend">
+              <p class="fa-solid legend-icon" style="color:green;font-weight:800;">----- <span class="legend-text">Cyclone Path     </span></p>
+              <p class="fa-solid fa-square legend-icon" style="color:blue"><span class="legend-text"> Predicted Landfall     </span></p>
+              <p class="fa-solid fa-location-dot legend-icon" style="color:red;"> <span class="legend-text">Actual Landfall</span></p>
+            </div>
+            <iframe class="map-frame" src="bulbul-map.html"></iframe>
+
+          </div>
+          <img src="fani-img.PNG" class="graph-chart graph-img" style="display:none;"></img>
+          <div class="mapbox-container cont2" style="display:none;">
+            <div class="legend">
+              <p class="fa-solid legend-icon" style="color:green;font-weight:800;">----- <span class="legend-text">Cyclone Path     </span></p>
+              <p class="fa-solid fa-square legend-icon" style="color:blue"><span class="legend-text"> Predicted Landfall     </span></p>
+              <p class="fa-solid fa-location-dot legend-icon" style="color:red;"> <span class="legend-text">Actual Landfall</span></p>
+            </div>
+            <iframe class="map-frame" src="fani-map.html"></iframe>
+          </div>
+          <img src="gaja-img.PNG" class="graph-chart graph-img" style="display:none;"></img>
+          <div class="mapbox-container cont3" style="display:none;">
+            <div class="legend">
+              <p class="fa-solid legend-icon" style="color:green;font-weight:800;">----- <span class="legend-text">Cyclone Path     </span></p>
+              <p class="fa-solid fa-square legend-icon" style="color:blue"><span class="legend-text"> Predicted Landfall     </span></p>
+              <p class="fa-solid fa-location-dot legend-icon" style="color:red;"> <span class="legend-text">Actual Landfall</span></p>
+            </div>
+            <iframe class="map-frame" src="gaja-map.html"></iframe>
+          </div>
+
+
+          <!-- <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~sejwal18/1.embed"></iframe> -->
+
+          <!-- <div>
+    <a href="https://plotly.com/~sejwal18/1/?share_key=FkHcDSptu9rSIp1yjw5nxb" target="_blank" title="bulbul" style="display: block; text-align: center;"><img src="https://plotly.com/~sejwal18/1.png?share_key=FkHcDSptu9rSIp1yjw5nxb" alt="bulbul"
+      style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plotly.com/404.png';" /></a>
+    <script data-plotly="sejwal18:1" sharekey-plotly="FkHcDSptu9rSIp1yjw5nxb" src="https://plotly.com/embed.js" async></script>
+</div> -->
+
+          <!-- <img class="graph-img" src="bulbul-img.PNG" /> -->
+        </div>
+      </div>
+      <div class="col-lg-4 ratingCol">
+        <!-- <select class="selCyclone">
+          <option value="bulbul">Bulbul</option>
+          <option value="fani">Fani</option>
+          <option value="gaza">Gaza</option>
+        </select> -->
+        <p class="para">
+          When Bulbul made landfall in India and Bangladesh in November 2019, it was classified as a
+          severe cyclonic storm with maximum sustained wind speeds of 120 km/h (75 mph), causing
+          significant damage to infrastructure and claiming several lives.
+        </p>
+        <div class="ratings">
+
+          <div class="valueDetails">
+            <!-- <h3 class="rating-heading">Actual Intensity</h3> -->
+
+            <!-- testing -->
+            <div class="rating-bar0 justify-content-center">
+
+              <table class="text-left mx-auto">
+
+                <td>
+                  <h3 class="rating-heading">Actual Intensity <span style="font-size: 1.1vw;">(In Knots)</span></h3>
+
+                </td>
+
+                <tr>
+                  <td class="rating-bar">
+                    <div class="bar-container">
+                      <div class="bar-5"></div>
+                    </div>
+                  </td>
+                  <td  class="text-right temp1">30</td>
+                </tr>
+
+                <td>
+                  <h3 class="rating-heading" style="padding-top: 10px;">Predicted Avg Intensity</h3>
+                </td>
+
+                <tr>
+                  <td class="rating-bar">
+                    <div class="bar-container">
+                      <div class="bar-4"></div>
+                    </div>
+                  </td>
+                  <td  class="text-right temp2">30.07</td>
+                </tr>
+
+              </table>
+
+
+            </div>
+            <!-- end -->
+            <!-- <div class="progress">
+              <div class="progress-value"></div>
+
+              <div class="">
+              </div>
+              <p class="perVal">80</p>
+            </div> -->
+          </div>
+
+
+
+          <!--          WORKING CIRCLE          -->
+
+
+          <!-- <div class="col-sm-3 col-md-4 col-6 circle-progress-block">
+                      <div id="circleProgress1" class="progressbar-js-circle border rounded p-3">
+                        <svg viewBox="0 0 100 100" style="display: block; width: 100%;">
+                          <path d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" stroke="#eee" stroke-width="4" fill-opacity="0">
+
+                          </path>
+                          <path d="M 50,50 m 0,-48 a 48,48 0 1 1 0,96 a 48,48 0 1 1 0,-96" stroke="rgb(159,162,179)" stroke-width="4" fill-opacity="0" style="stroke-dasharray: 301.635, 301.635; stroke-dashoffset: 199.079;">
+
+                          </path></svg><div class="progressbar-text" style="position: absolute; left: 50%; top: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(0, 0, 0); font-size: 1rem;">86</div></div>
+                    </div> -->
+
+          <!-- Progress bar 1 -->
+          <!-- <div class="progress2 mx-auto" data-value='80'>
+            <span class="progress-left">
+              <span class="progress-bar border-primary"></span>
+            </span>
+            <span class="progress-right">
+              <span class="progress-bar border-primary"></span>
+            </span>
+            <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+              <div class="h2 font-weight-bold">80<sup class="small">%</sup></div>
+            </div>
+          </div> -->
+          <!-- END -->
+
+          <div class="canvDetails">
+            <h3 class="rating-heading" style="padding: 5px 10px 5px 0;">
+              Overall Accuracy</h3>
+            <div class="canvasDiv">
+              <p id="canvPerVal"></p>
+              <canvas class="myChart"></canvas>
+            </div>
+          </div>
+          <!-- <script src="java.js" charset="utf-8"></script> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--    CONTACT US SECTION    -->
+
+  <section>
+    <div id="contact-div-id" class="contact-div">
+      <h1 class="contact-heading">CONTACT US</h1>
+      <div class="row row4">
+        <div style="color:white;" class="contact-left">
+
+          <div class="box website-div">
+            <i class="fa-sharp fa-solid fa-globe "></i>
+            <h3 class="contact-details">WEBSITE</h3>
+            <a class="contact-details" style="color:white;" href="https://www.iiitd.ac.in/ashishk">www.iiitd.ac.in/ashishk</a>
+
+          </div>
+          <div class="box email-div">
+            <i class="fa-solid fa-envelope "></i>
+            <h3 class="contact-details">E-MAIL</h3>
+            <h5 class="contact-details">ashish.pandey@iiitd.ac.in</h5>
+
+          </div>
+          <div class="box contact-box">
+            <i class="fa-solid fa-phone "></i>
+            <h3 class="contact-details">CONTACT</h3>
+            <h5 class="contact-details">011-26907461</h5>
+
+          </div>
+          <div class="box address-div">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3 class="contact-details">ADDRESS</h3>
+            <h5 class="contact-details">B-307 (R&D Block) </h5>
+            <h5>IIITD, NEW DELHI-110020</h5>
+
+          </div>
+
+
+        </div>
+
+        <div class="contact-right">
+          <div id='map' style='width: 100%; height: 100%;'></div>
+          <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+          <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
+          <script>
+            mapboxgl.accessToken = 'pk.eyJ1Ijoic291cmFiaDIwNDc2IiwiYSI6ImNsaGo3eWU2eTBmNm4zdG9lcjE5NTYzbXEifQ.ik3kXE1t-cNQOsBgNKZ1Qw';
+            // mapboxgl.accessToken = 'pk.eyJ1Ijoic291cmFiaDIwNDc2IiwiYSI6ImNsaGo3eWU2eTBmNm4zdG9lcjE5NTYzbXEifQ.ik3kXE1t-cNQOsBgNKZ1Qw';
+
+            const map = new mapboxgl.Map({
+              container: 'map',
+              style: 'mapbox://styles/mapbox/streets-v11',
+              center: [77.27183935525673, 28.54368556680578],
+              zoom: 15
+            });
+
+            var marker = new mapboxgl.Marker()
+            .setLngLat([77.27183935525673, 28.54368556680578])
+            .addTo(map);
+
+            map.addControl(new mapboxgl.NavigationControl());
+
+
+          </script>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+  <!-- Footer section -->
+
+  <section>
+
+    <footer>
+      <div class="footer">
+
+        <div class="row2">
+          Cyclone Predictor Copyright © 2023 - All rights reserved
+        </div>
+      </div>
+    </footer>
+
+  </section>
+
+  <script src="java.js" charset="utf-8"></script>
+
+</body>
+
+</html>
